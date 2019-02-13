@@ -1,0 +1,40 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    background-color: #e53935;
+}
+input[type=range]::-moz-range-thumb {
+    background-color: #e53935;
+}
+input[type=range]::-ms-thumb {
+    background-color: #e53935;
+}
+
+input[type=range] + .thumb {
+    background-color: #e53935;
+  }
+  input[type=range] + .thumb.active .value {
+    color: white;
+  }
+
+#logo {
+    background: linear-gradient(to right, #e53935 0%, #ff8a80 100%);
+    background-clip: text;
+	-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#headline {
+    font-size: 100px;
+    font-family: 'Abril Fatface', cursive;
+    margin-top: 0;
+}
+
