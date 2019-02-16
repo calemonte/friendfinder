@@ -21,15 +21,10 @@
             <!-- Instructions -->
             <div class="row">
                 <div class="col s12">
-                    <h1>Questions</h1>
+                    <h1 id="survey-head">The Qs</h1>
                 </div>
-                <div class="col s6">
-                    <p>0</p>
-                    <p>Strongly Disagree</p>
-                </div>
-                <div class="col s6">
-                    <p>10</p>
-                    <p>Strongly Agree</p>
+                <div class="col s12" id="survey-intro">
+                    <p>To find friends, respond to the questions below on a scale of 0 (strongly disagree) to 10 (strongly agree).</p>
                 </div>
              </div>
         </section>
@@ -41,43 +36,72 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="name" type="text">
-                        <label for="name">Your Name</label>
+                        <label for="name">Your name</label>
                         <!-- <span class="helper-text">Helper text</span> -->
                     </div>
                     <div class="input-field col s12">
                     <input id="photo" type="url">
-                        <label for="photo">Link to avatar</label>
+                        <label for="photo">Link to your photo</label>
                         <!-- <span class="helper-text">URL to image</span> -->
+                    </div>
+                    <div class="input-field col s12">
+                        <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                        <label for="textarea2">Say a little bit about yourself</label>
                     </div>
                 </div>
                 
                 <div class="row">
-                    <h3 id="q1-text">The winter isn't so bad.</h3>
+                    <h3 id="q1-text" class="q-head">The winter isn't so bad.</h3>
                     <p class="range-field">
                         <input type="range" id="q1-val" min="0" max="10" />
                     </p>
 
-                    <h3 id="q2-text">Gritty rocks.</h3>
+                    <h3 id="q2-text" class="q-head">Gritty rocks.</h3>
                     <p class="range-field">
                         <input type="range" id="q2-val" min="0" max="10" />
                     </p>
 
-                    <h3 id="q3-text">Pizza is good cold.</h3>
+                    <h3 id="q3-text" class="q-head">Pizza is good cold.</h3>
                     <p class="range-field">
                         <input type="range" id="q3-val" min="0" max="10" />
                     </p>
 
-                    <h3 id="q4-text">Cats rule.</h3>
+                    <h3 id="q4-text" class="q-head">Cats rule.</h3>
                     <p class="range-field">
                         <input type="range" id="q4-val" min="0" max="10" />
                     </p>
 
-                    <h3 id="q5-text">Aliens are real.</h3>
+                    <h3 id="q5-text" class="q-head">Aliens are real.</h3>
                     <p class="range-field">
                         <input type="range" id="q5-val" min="0" max="10" />
                     </p>
+
+                    <h3 id="q6-text" class="q-head">City life > Country life</h3>
+                    <p class="range-field">
+                        <input type="range" id="q6-val" min="0" max="10" />
+                    </p>
+
+                    <h3 id="q7-text" class="q-head">Math is fun.</h3>
+                    <p class="range-field">
+                        <input type="range" id="q7-val" min="0" max="10" />
+                    </p>
+
+                    <h3 id="q8-text" class="q-head">I've read a poem in the past year.</h3>
+                    <p class="range-field">
+                        <input type="range" id="q8-val" min="0" max="10" />
+                    </p>
+
+                    <h3 id="q9-text" class="q-head">Tacos are life.</h3>
+                    <p class="range-field">
+                        <input type="range" id="q9-val" min="0" max="10" />
+                    </p>
+
+                    <h3 id="q10-text" class="q-head">It's <a href="https://www.youtube.com/watch?v=7X_WvGAhMlQ" target="_blank">obviously</a> laurel.</h3>
+                    <p class="range-field">
+                        <input type="range" id="q10-val" min="0" max="10" />
+                    </p>
                     
-                    <a class="waves-effect waves-light btn-large red darken-1" id="get-started" href="#">Submit</a>
+                    <a class="waves-effect waves-light btn-large red darken-1" id="submit" href="#">Submit</a>
                 </div>
             </form>
         </section>
