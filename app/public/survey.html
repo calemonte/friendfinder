@@ -126,6 +126,7 @@
                 name: $("#name").val().trim(),
                 photo: $("#photo").val().trim(),
                 bio: $("#bio").val().trim(),
+                // Scores should be more elegantly writte (ie, iterate over DOM elements and push into array).
                 scores: [
                     $("#q1-val").val(),
                     $("#q2-val").val(),
@@ -143,8 +144,7 @@
             $.ajax("/api/friends", {
                 type: "POST",
                 data: submission
-            }).then(function(err, data) {
-                if (err) throw err;
+            }).then(function(data) {
                 console.log(data);
             });
         });

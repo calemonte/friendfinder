@@ -11,8 +11,9 @@ module.exports = function(app) {
         res.send(friends.allFriends);
     })
     .post((req, res) => {
+        const newFriend = req.body;
         console.log("API post request successful.");
-        res.send("API post successful");
+        res.json(newFriend);
     });
     
 };
