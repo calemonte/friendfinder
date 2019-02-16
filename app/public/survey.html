@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <link rel="stylesheet" href="./css/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -45,8 +46,8 @@
                         <!-- <span class="helper-text">URL to image</span> -->
                     </div>
                     <div class="input-field col s12">
-                        <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
-                        <label for="textarea2">Say a little bit about yourself</label>
+                        <textarea id="bio" class="materialize-textarea" data-length="120"></textarea>
+                        <label for="bio">Say a little bit about yourself</label>
                     </div>
                 </div>
                 
@@ -114,5 +115,44 @@
     </div> <!-- Row end -->
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Script for handling POST request -->
+    <script type="text/javascript">
+
+        $("#submit").on("click", function(e) {
+            e.preventDefault();
+
+            const submission = {
+                name: $("#name").val().trim(),
+                photo: $("#photo").val().trim(),
+                bio: $("#bio").val().trim(),
+                scores: [
+                    $("#q1-val").val(),
+                    $("#q2-val").val(),
+                    $("#q3-val").val(),
+                    $("#q4-val").val(),
+                    $("#q5-val").val(),
+                    $("#q6-val").val(),
+                    $("#q7-val").val(),
+                    $("#q8-val").val(),
+                    $("#q9-val").val(),
+                    $("#q10-val").val(),
+                ],
+            }
+
+            $.ajax("/api/friends", {
+                type: "POST",
+                data: submission
+            }).then(function(err, data) {
+                if (err) throw err;
+                console.log(data);
+            });
+        });
+
+        // $.post("/survey", submission)
+        //     .then((data) => {
+        //         console.log()
+        //     })
+    </script>
   </body>
 </html>
