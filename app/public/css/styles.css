@@ -66,3 +66,7 @@ a {
     font-size: 18px;
     color: gray;
 }
+
+#match-img {
+    width: 100%;
+}

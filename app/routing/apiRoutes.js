@@ -28,9 +28,9 @@ module.exports = function(app) {
 
         for (let i = 0; i < allFriends.length; i++) {
             
-            // Return false if we are trying to match the same friend.
+            // Step over the loop if we match ourself.
             if (allFriends[i].id === newFriend.id) {
-                return finalMatch = false;
+                continue;
             }
 
             const currentDifference = Math.abs(allFriends[i].totalScore - newFriend.totalScore);

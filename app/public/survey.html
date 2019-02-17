@@ -110,6 +110,28 @@
         <section class="center-align">
             <a href="/" class="red-text">back</a>
         </section>
+
+        <!-- Modal Trigger -->
+        <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
+
+        <!-- Modal Structure -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <h4>Best Match</h4>
+                <h5 id="match-name">Test</h5>
+                <div class="row">
+                    <div class="col s8">
+                        <p id="match-bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur quaerat qui nesciunt quia distinctio sit velit harum temporibus! Sint quasi odit perferendis ratione nam voluptatibus mollitia laboriosam quae id quo.</p>
+                    </div>
+                    <div class="col s4">
+                        <img id="match-img" src="" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="/" class="modal-close waves-effect waves-green btn-flat">Start Over</a>
+            </div>
+        </div>
           
       </div> <!-- Col end -->
     </div> <!-- Row end -->
@@ -143,7 +165,13 @@
                 type: "POST",
                 data: submission
             }).then(function(data) {
-                console.log(data);
+                $("#modal").modal({
+                    dismissible: false
+                });
+                $("#match-name").text(data.name);
+                $("#match-bio").text(data.bio);
+                $("#match-img").attr("src", data.photo);
+                $("#modal").modal('open');
             });
         });
     </script>
