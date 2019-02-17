@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 
-                <div class="row">
+                <div class="row" id="questions">
                     <h3 id="q1-text" class="q-head">The winter isn't so bad.</h3>
                     <p class="range-field">
                         <input type="range" id="q1-val" min="0" max="10" />
@@ -122,26 +122,22 @@
         $("#submit").on("click", function(e) {
             e.preventDefault();
 
+            const scoreData = questions.querySelectorAll("[id$=val]");
+            let max = 0;
+            let scores = [];
+
+            scoreData.forEach(element => {
+                max += parseInt(element.max);
+                scores.push(element.valueAsNumber);
+            });
+
             const submission = {
                 name: $("#name").val().trim(),
                 photo: $("#photo").val().trim(),
                 bio: $("#bio").val().trim(),
-                // Scores should be more elegantly writte (ie, iterate over DOM elements and push into array).
-                scores: [
-                    parseInt($("#q1-val").val()),
-                    parseInt($("#q2-val").val()),
-                    parseInt($("#q3-val").val()),
-                    parseInt($("#q4-val").val()),
-                    parseInt($("#q5-val").val()),
-                    parseInt($("#q6-val").val()),
-                    parseInt($("#q7-val").val()),
-                    parseInt($("#q8-val").val()),
-                    parseInt($("#q9-val").val()),
-                    parseInt($("#q10-val").val()),
-                ],
+                scores: scores,
+                max: max,
             }
-
-            console.log(submission);
 
             $.ajax("/api/friends", {
                 type: "POST",
@@ -150,11 +146,6 @@
                 console.log(data);
             });
         });
-
-        // $.post("/survey", submission)
-        //     .then((data) => {
-        //         console.log()
-        //     })
     </script>
   </body>
 </html>

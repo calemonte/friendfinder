@@ -13,7 +13,7 @@ module.exports = function(app) {
     .post((req, res) => {
         const data = req.body;
         const newFriend = new friends.Friend(data.name, data.photo, data.bio, data.scores);
-        const match = calculateCompability(newFriend, friends.allFriends);
+        const match = calculateCompability(newFriend, friends.allFriends, data.max);
 
         friends.allFriends.push(newFriend);
         console.log("API post request successful.");
@@ -21,16 +21,16 @@ module.exports = function(app) {
         res.json(match);
     });
 
-    // Calculate the combability of the available friends and return the best match.
-    function calculateCompability(newFriend, allFriends) {
-        let matchTotal = 100;
+    // Calculate the combability of all available friends and return the best match.
+    function calculateCompability(newFriend, allFriends, max) {
+        let matchTotal = max;
         let finalMatch = {};
 
         for (let i = 0; i < allFriends.length; i++) {
             
             // Return false if we are trying to match the same friend.
             if (allFriends[i].id === newFriend.id) {
-                return false;
+                return finalMatch = false;
             }
 
             const currentDifference = Math.abs(allFriends[i].totalScore - newFriend.totalScore);
