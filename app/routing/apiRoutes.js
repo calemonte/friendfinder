@@ -29,13 +29,14 @@ module.exports = function(app) {
         for (let i = 0; i < allFriends.length; i++) {
             
             // Step over the loop if we match ourself.
+            // NOTE: Should capture what the last submission was and not display it, as opposed to not matching on the Id. Something for later...
             if (allFriends[i].id === newFriend.id) {
                 continue;
             }
 
             const currentDifference = Math.abs(allFriends[i].totalScore - newFriend.totalScore);
 
-            if (currentDifference < matchTotal) {
+            if (currentDifference <= matchTotal) {
                 matchTotal = currentDifference;
                 finalMatch = allFriends[i];
             }

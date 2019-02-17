@@ -32,22 +32,22 @@
 
         <!-- Questions form -->
         <section class="center-align">
-            <form action="#">
+            <form action="/api/friends">
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="name" type="text">
-                        <label for="name">Your name</label>
+                        <input id="name" type="text" class="validate" required aria-required="true">
+                        <label for="name" data-error="Please enter your name" data-success="All set">Your name</label>
                         <!-- <span class="helper-text">Helper text</span> -->
                     </div>
                     <div class="input-field col s12">
-                    <input id="photo" type="url">
-                        <label for="photo">Link to your photo</label>
+                    <input id="photo" type="url" class="validate" required aria-required="true">
+                        <label for="photo" data-error="Please enter a URL to your photo" data-success="All set">Link to your photo</label>
                         <!-- <span class="helper-text">URL to image</span> -->
                     </div>
                     <div class="input-field col s12">
-                        <textarea id="bio" class="materialize-textarea" data-length="120"></textarea>
-                        <label for="bio">Say a little bit about yourself</label>
+                        <textarea id="bio" class="materialize-textarea validate" data-length="120" required aria-required="true"></textarea>
+                        <label for="bio" data-error="Please enter a brief bio" data-success="All set">Say a little bit about yourself</label>
                     </div>
                 </div>
                 
@@ -102,7 +102,11 @@
                         <input type="range" id="q10-val" min="0" max="10" />
                     </p>
                     
-                    <a class="waves-effect waves-light btn-large red darken-1" id="submit" href="#">Submit</a>
+                    <!-- <a class="waves-effect waves-light btn-large red darken-1" id="submit" href="#">Submit</a> -->
+
+                    <button class="waves-effect waves-light btn-large red darken-1" type="submit" name="action" id="submit">
+                        Submit
+                    </button>
                 </div>
             </form>
         </section>
@@ -144,36 +148,54 @@
         $("#submit").on("click", function(e) {
             e.preventDefault();
 
-            const scoreData = questions.querySelectorAll("[id$=val]");
-            let max = 0;
-            let scores = [];
+            if (validate()) {
+                const scoreData = questions.querySelectorAll("[id$=val]");
 
-            scoreData.forEach(element => {
-                max += parseInt(element.max);
-                scores.push(element.valueAsNumber);
-            });
+                let max = 0;
+                let scores = [];
+                scoreData.forEach(element => {
+                    max += parseInt(element.max);
+                    scores.push(element.valueAsNumber);
+                });
 
-            const submission = {
-                name: $("#name").val().trim(),
-                photo: $("#photo").val().trim(),
-                bio: $("#bio").val().trim(),
-                scores: scores,
-                max: max,
+                const submission = {
+                    name: $("#name").val().trim(),
+                    photo: $("#photo").val().trim(),
+                    bio: $("#bio").val().trim(),
+                    scores: scores,
+                    max: max,
+                }
+
+                $.ajax("/api/friends", {
+                    type: "POST",
+                    data: submission
+                }).then(function(data) {
+                    $("#modal").modal({
+                        dismissible: false
+                    });
+                    $("#match-name").text(data.name);
+                    $("#match-bio").text(data.bio);
+                    $("#match-img").attr("src", data.photo);
+                    $("#modal").modal("open");
+                });
+            } else {
+                alert("Please make sure you've added your name, bio, and a URL to your photo.");
+            }
+        });
+        
+        // Very simple validation for text inputs.
+        function validate() {
+            let valid = true;
+            const name = $("#name").val();
+            const photo = $("#photo").val();
+            const bio = $("#bio").val();
+            
+            if (name === "" || photo === "" || bio === "") {
+                valid = false;
             }
 
-            $.ajax("/api/friends", {
-                type: "POST",
-                data: submission
-            }).then(function(data) {
-                $("#modal").modal({
-                    dismissible: false
-                });
-                $("#match-name").text(data.name);
-                $("#match-bio").text(data.bio);
-                $("#match-img").attr("src", data.photo);
-                $("#modal").modal('open');
-            });
-        });
+            return valid;
+        }
     </script>
   </body>
 </html>

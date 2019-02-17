@@ -40,6 +40,10 @@ a {
     height: 100%;
 }
 
+#start-section {
+    padding-top: 1em;
+}
+
 #survey {
     width: 70%;
 }
