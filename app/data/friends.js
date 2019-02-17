@@ -7,15 +7,20 @@ class Friend {
         this.photo = photo;
         this.bio = bio;
         this.scores = scores;
+        let sum = 0;
+        for (let i = 0; i < this.scores.length; i++) {
+            sum += parseInt(this.scores[i]);
+        }
+        this.totalScore = sum;
     }
 
-    totalScore() {
-        let sum = 0;
-        this.scores.forEach(element => {
-            sum += element;
-        });
-        return sum;
-    }
+    // totalScore() {
+    //     let sum = 0;
+    //     this.scores.forEach(element => {
+    //         sum += element;
+    //     });
+    //     return sum;
+    // }
 }
 
 let allFriends = [
@@ -27,8 +32,6 @@ let allFriends = [
 
     new Friend("Serena", "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Serena_Williams_at_2013_US_Open.jpg/440px-Serena_Williams_at_2013_US_Open.jpg", "Superstar athlete and mom with interest in racquet sports", [0, 4, 10, 1, 10, 5, 2, 0, 10, 10])
 ];
-
-// allFriends[0].totalScore();
 
 module.exports.Friend = Friend;
 module.exports.allFriends = allFriends;

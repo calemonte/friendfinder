@@ -128,18 +128,20 @@
                 bio: $("#bio").val().trim(),
                 // Scores should be more elegantly writte (ie, iterate over DOM elements and push into array).
                 scores: [
-                    $("#q1-val").val(),
-                    $("#q2-val").val(),
-                    $("#q3-val").val(),
-                    $("#q4-val").val(),
-                    $("#q5-val").val(),
-                    $("#q6-val").val(),
-                    $("#q7-val").val(),
-                    $("#q8-val").val(),
-                    $("#q9-val").val(),
-                    $("#q10-val").val(),
+                    parseInt($("#q1-val").val()),
+                    parseInt($("#q2-val").val()),
+                    parseInt($("#q3-val").val()),
+                    parseInt($("#q4-val").val()),
+                    parseInt($("#q5-val").val()),
+                    parseInt($("#q6-val").val()),
+                    parseInt($("#q7-val").val()),
+                    parseInt($("#q8-val").val()),
+                    parseInt($("#q9-val").val()),
+                    parseInt($("#q10-val").val()),
                 ],
             }
+
+            console.log(submission);
 
             $.ajax("/api/friends", {
                 type: "POST",
