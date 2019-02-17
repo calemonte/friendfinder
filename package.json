@@ -19,5 +19,8 @@
   "homepage": "https://github.com/calemonte/friendfinder#readme",
   "dependencies": {
     "express": "^4.16.4"
+  },
+  "engines": {
+    "node": "10.x"
   }
 }
