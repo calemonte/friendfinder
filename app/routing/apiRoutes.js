@@ -34,7 +34,7 @@ module.exports = function(app) {
                 continue;
             }
 
-            const currentDifference = Math.abs(allFriends[i].totalScore - newFriend.totalScore);
+            const currentDifference = Math.abs(allFriends[i].totalScore() - newFriend.totalScore());
 
             if (currentDifference <= matchTotal) {
                 matchTotal = currentDifference;
