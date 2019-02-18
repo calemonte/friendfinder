@@ -1,76 +1,76 @@
 html {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    /* height: 100%; */
-    display: flex;
-    align-items: center;
+  /* height: 100%; */
+  display: flex;
+  align-items: center;
 }
 
-input[type=range]::-webkit-slider-thumb {
-    background-color: #e53935;
+input[type="range"]::-webkit-slider-thumb {
+  background-color: #e53935;
 }
 
-input[type=range]::-moz-range-thumb {
-    background-color: #e53935;
+input[type="range"]::-moz-range-thumb {
+  background-color: #e53935;
 }
 
-input[type=range]::-ms-thumb {
-    background-color: #e53935;
+input[type="range"]::-ms-thumb {
+  background-color: #e53935;
 }
 
-input[type=range] + .thumb {
-    background-color: #e53935;
+input[type="range"] + .thumb {
+  background-color: #e53935;
 }
 
-input[type=range] + .thumb.active .value {
-color: white;
+input[type="range"] + .thumb.active .value {
+  color: white;
 }
 
 a {
-    color: #e53935;
+  color: #e53935;
 }
 
 .q-head {
-    padding-bottom: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 #main {
-    height: 100%;
+  height: 100%;
 }
 
 #start-section {
-    padding-top: 1em;
+  padding-top: 1em;
 }
 
 #survey {
-    width: 70%;
+  width: 70%;
 }
 
 #logo {
-    background: linear-gradient(to right, #e53935 0%, #ff8a80 100%);
-    background-clip: text;
-	-webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: linear-gradient(to right, #e53935 0%, #ff8a80 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #headline {
-    font-size: 100px;
-    font-family: 'Abril Fatface', cursive;
-    margin-top: 0;
+  font-size: 100px;
+  font-family: "Abril Fatface", cursive;
+  margin-top: 0;
 }
 
 #survey-head {
-    font-size: 70px;
-    font-family: 'Abril Fatface', cursive;
+  font-size: 70px;
+  font-family: "Abril Fatface", cursive;
 }
 
 #survey-intro {
-    font-size: 18px;
-    color: gray;
+  font-size: 18px;
+  color: gray;
 }
 
 #match-img {
-    width: 100%;
+  width: 100%;
 }

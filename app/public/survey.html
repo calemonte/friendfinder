@@ -1,114 +1,174 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Take Survey</title>
     <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Abril+Fatface"
+      rel="stylesheet"
+    />
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
     <link rel="stylesheet" href="./css/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
     <div class="row" id="survey">
       <div class="col s12">
-        
         <section class="center-align">
-            <!-- Instructions -->
-            <div class="row">
-                <div class="col s12">
-                    <h1 id="survey-head">The Qs</h1>
-                </div>
-                <div class="col s12" id="survey-intro">
-                    <p>To find friends, respond to the questions below on a scale of 0 (strongly disagree) to 10 (strongly agree).</p>
-                </div>
-             </div>
+          <!-- Instructions -->
+          <div class="row">
+            <div class="col s12">
+              <h1 id="survey-head">The Qs</h1>
+            </div>
+            <div class="col s12" id="survey-intro">
+              <p>
+                To find friends, respond to the questions below on a scale of 0
+                (strongly disagree) to 10 (strongly agree).
+              </p>
+            </div>
+          </div>
         </section>
 
         <!-- Questions form -->
         <section class="center-align">
-            <form action="/api/friends">
+          <form action="/api/friends">
+            <div class="row">
+              <div class="input-field col s12">
+                <input
+                  id="name"
+                  type="text"
+                  class="validate"
+                  required
+                  aria-required="true"
+                />
+                <label
+                  for="name"
+                  data-error="Please enter your name"
+                  data-success="All set"
+                  >Your name</label
+                >
+                <!-- <span class="helper-text">Helper text</span> -->
+              </div>
+              <div class="input-field col s12">
+                <input
+                  id="photo"
+                  type="url"
+                  class="validate"
+                  required
+                  aria-required="true"
+                />
+                <label
+                  for="photo"
+                  data-error="Please enter a URL to your photo"
+                  data-success="All set"
+                  >Link to your photo</label
+                >
+                <!-- <span class="helper-text">URL to image</span> -->
+              </div>
+              <div class="input-field col s12">
+                <textarea
+                  id="bio"
+                  class="materialize-textarea validate"
+                  data-length="120"
+                  required
+                  aria-required="true"
+                ></textarea>
+                <label
+                  for="bio"
+                  data-error="Please enter a brief bio"
+                  data-success="All set"
+                  >Say a little bit about yourself</label
+                >
+              </div>
+            </div>
 
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="name" type="text" class="validate" required aria-required="true">
-                        <label for="name" data-error="Please enter your name" data-success="All set">Your name</label>
-                        <!-- <span class="helper-text">Helper text</span> -->
-                    </div>
-                    <div class="input-field col s12">
-                    <input id="photo" type="url" class="validate" required aria-required="true">
-                        <label for="photo" data-error="Please enter a URL to your photo" data-success="All set">Link to your photo</label>
-                        <!-- <span class="helper-text">URL to image</span> -->
-                    </div>
-                    <div class="input-field col s12">
-                        <textarea id="bio" class="materialize-textarea validate" data-length="120" required aria-required="true"></textarea>
-                        <label for="bio" data-error="Please enter a brief bio" data-success="All set">Say a little bit about yourself</label>
-                    </div>
-                </div>
-                
-                <div class="row" id="questions">
-                    <h3 id="q1-text" class="q-head">The winter isn't so bad.</h3>
-                    <p class="range-field">
-                        <input type="range" id="q1-val" min="0" max="10" />
-                    </p>
+            <div class="row" id="questions">
+              <h3 id="q1-text" class="q-head">The winter isn't so bad.</h3>
+              <p class="range-field">
+                <input type="range" id="q1-val" min="0" max="10" />
+              </p>
 
-                    <h3 id="q2-text" class="q-head">Gritty rocks.</h3>
-                    <p class="range-field">
-                        <input type="range" id="q2-val" min="0" max="10" />
-                    </p>
+              <h3 id="q2-text" class="q-head">Gritty rocks.</h3>
+              <p class="range-field">
+                <input type="range" id="q2-val" min="0" max="10" />
+              </p>
 
-                    <h3 id="q3-text" class="q-head">Pizza is good cold.</h3>
-                    <p class="range-field">
-                        <input type="range" id="q3-val" min="0" max="10" />
-                    </p>
+              <h3 id="q3-text" class="q-head">Pizza is good cold.</h3>
+              <p class="range-field">
+                <input type="range" id="q3-val" min="0" max="10" />
+              </p>
 
-                    <h3 id="q4-text" class="q-head">Cats rule.</h3>
-                    <p class="range-field">
-                        <input type="range" id="q4-val" min="0" max="10" />
-                    </p>
+              <h3 id="q4-text" class="q-head">Cats rule.</h3>
+              <p class="range-field">
+                <input type="range" id="q4-val" min="0" max="10" />
+              </p>
 
-                    <h3 id="q5-text" class="q-head">Aliens are real.</h3>
-                    <p class="range-field">
-                        <input type="range" id="q5-val" min="0" max="10" />
-                    </p>
+              <h3 id="q5-text" class="q-head">Aliens are real.</h3>
+              <p class="range-field">
+                <input type="range" id="q5-val" min="0" max="10" />
+              </p>
 
-                    <h3 id="q6-text" class="q-head">City life > Country life</h3>
-                    <p class="range-field">
-                        <input type="range" id="q6-val" min="0" max="10" />
-                    </p>
+              <h3 id="q6-text" class="q-head">City life > Country life</h3>
+              <p class="range-field">
+                <input type="range" id="q6-val" min="0" max="10" />
+              </p>
 
-                    <h3 id="q7-text" class="q-head">Math is fun.</h3>
-                    <p class="range-field">
-                        <input type="range" id="q7-val" min="0" max="10" />
-                    </p>
+              <h3 id="q7-text" class="q-head">Math is fun.</h3>
+              <p class="range-field">
+                <input type="range" id="q7-val" min="0" max="10" />
+              </p>
 
-                    <h3 id="q8-text" class="q-head">Poetry is enjoyable.</h3>
-                    <p class="range-field">
-                        <input type="range" id="q8-val" min="0" max="10" />
-                    </p>
+              <h3 id="q8-text" class="q-head">Poetry is enjoyable.</h3>
+              <p class="range-field">
+                <input type="range" id="q8-val" min="0" max="10" />
+              </p>
 
-                    <h3 id="q9-text" class="q-head">Tacos are life.</h3>
-                    <p class="range-field">
-                        <input type="range" id="q9-val" min="0" max="10" />
-                    </p>
+              <h3 id="q9-text" class="q-head">Tacos are life.</h3>
+              <p class="range-field">
+                <input type="range" id="q9-val" min="0" max="10" />
+              </p>
 
-                    <h3 id="q10-text" class="q-head">It's <a href="https://www.youtube.com/watch?v=7X_WvGAhMlQ" target="_blank">obviously</a> laurel.</h3>
-                    <p class="range-field">
-                        <input type="range" id="q10-val" min="0" max="10" />
-                    </p>
-                    
-                    <!-- <a class="waves-effect waves-light btn-large red darken-1" id="submit" href="#">Submit</a> -->
+              <h3 id="q10-text" class="q-head">
+                It's
+                <a
+                  href="https://www.youtube.com/watch?v=7X_WvGAhMlQ"
+                  target="_blank"
+                  >obviously</a
+                >
+                laurel.
+              </h3>
+              <p class="range-field">
+                <input type="range" id="q10-val" min="0" max="10" />
+              </p>
 
-                    <button class="waves-effect waves-light btn-large red darken-1" type="submit" name="action" id="submit">
-                        Submit
-                    </button>
-                </div>
-            </form>
+              <!-- <a class="waves-effect waves-light btn-large red darken-1" id="submit" href="#">Submit</a> -->
+
+              <button
+                class="waves-effect waves-light btn-large red darken-1"
+                type="submit"
+                name="action"
+                id="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
         </section>
 
         <!-- Modal Trigger -->
@@ -116,82 +176,97 @@
 
         <!-- Modal Structure -->
         <div id="modal" class="modal">
-            <div class="modal-content">
-                <h4>Best Match</h4>
-                <h5 id="match-name">Test</h5>
-                <div class="row">
-                    <div class="col s8">
-                        <p id="match-bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur quaerat qui nesciunt quia distinctio sit velit harum temporibus! Sint quasi odit perferendis ratione nam voluptatibus mollitia laboriosam quae id quo.</p>
-                    </div>
-                    <div class="col s4">
-                        <img id="match-img" src="" />
-                    </div>
-                </div>
+          <div class="modal-content">
+            <h4>Best Match</h4>
+            <h5 id="match-name">Test</h5>
+            <div class="row">
+              <div class="col s8">
+                <p id="match-bio">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Pariatur quaerat qui nesciunt quia distinctio sit velit harum
+                  temporibus! Sint quasi odit perferendis ratione nam
+                  voluptatibus mollitia laboriosam quae id quo.
+                </p>
+              </div>
+              <div class="col s4">
+                <img id="match-img" src="" />
+              </div>
             </div>
-            <div class="modal-footer">
-                <a href="/" class="modal-close waves-effect waves-green btn-flat">Start Over</a>
-            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="/" class="modal-close waves-effect waves-green btn-flat"
+              >Start Over</a
+            >
+          </div>
         </div>
-          
-      </div> <!-- Col end -->
-    </div> <!-- Row end -->
+      </div>
+      <!-- Col end -->
+    </div>
+    <!-- Row end -->
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <!-- Script for handling POST request -->
     <script type="text/javascript">
+      $("#submit").on("click", function(e) {
+        e.preventDefault();
 
-        $("#submit").on("click", function(e) {
-            e.preventDefault();
+        if (validate()) {
+          const scoreData = questions.querySelectorAll("[id$=val]");
 
-            if (validate()) {
-                const scoreData = questions.querySelectorAll("[id$=val]");
+          let max = 0;
+          let scores = [];
+          scoreData.forEach(element => {
+            max += parseInt(element.max);
+            scores.push(element.valueAsNumber);
+          });
 
-                let max = 0;
-                let scores = [];
-                scoreData.forEach(element => {
-                    max += parseInt(element.max);
-                    scores.push(element.valueAsNumber);
-                });
+          const submission = {
+            name: $("#name")
+              .val()
+              .trim(),
+            photo: $("#photo")
+              .val()
+              .trim(),
+            bio: $("#bio")
+              .val()
+              .trim(),
+            scores: scores,
+            max: max
+          };
 
-                const submission = {
-                    name: $("#name").val().trim(),
-                    photo: $("#photo").val().trim(),
-                    bio: $("#bio").val().trim(),
-                    scores: scores,
-                    max: max,
-                }
-
-                $.ajax("/api/friends", {
-                    type: "POST",
-                    data: submission
-                }).then(function(data) {
-                    $("#modal").modal({
-                        dismissible: false
-                    });
-                    $("#match-name").text(data.name);
-                    $("#match-bio").text(data.bio);
-                    $("#match-img").attr("src", data.photo);
-                    $("#modal").modal("open");
-                });
-            } else {
-                alert("Please make sure you've added your name, bio, and a URL to your photo.");
-            }
-        });
-        
-        // Very simple validation for text inputs.
-        function validate() {
-            let valid = true;
-            const name = $("#name").val();
-            const photo = $("#photo").val();
-            const bio = $("#bio").val();
-            
-            if (name === "" || photo === "" || bio === "") {
-                valid = false;
-            }
-
-            return valid;
+          $.ajax("/api/friends", {
+            type: "POST",
+            data: submission
+          }).then(function(data) {
+            $("#modal").modal({
+              dismissible: false
+            });
+            $("#match-name").text(data.name);
+            $("#match-bio").text(data.bio);
+            $("#match-img").attr("src", data.photo);
+            $("#modal").modal("open");
+          });
+        } else {
+          alert(
+            "Please make sure you've added your name, bio, and a URL to your photo."
+          );
         }
+      });
+
+      // Very simple validation for text inputs.
+      function validate() {
+        let valid = true;
+        const name = $("#name").val();
+        const photo = $("#photo").val();
+        const bio = $("#bio").val();
+
+        if (name === "" || photo === "" || bio === "") {
+          valid = false;
+        }
+
+        return valid;
+      }
     </script>
   </body>
 </html>
