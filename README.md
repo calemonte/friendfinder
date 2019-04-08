@@ -1,3 +1,5 @@
+![Detail of the Friend Finder landing page.](./app/public/images/friendfinder.png  "Detail of the Friend Finder landing page.")
+
 # Friend Finder
 
 Friend Finder is a web application in which users answer a series of questions on a scale of 0 to 10, and based on their selections they receive a "friend" recommendation for someone with similar scores.
